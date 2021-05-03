@@ -1,0 +1,22 @@
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  user: postgres
+  password: postgres
+  host: localhost
+  port: 5432
+
+development:
+  <<: *default
+  database: cashback_api_development
+
+test:
+  <<: *default
+  database: cashback_api_test
+
+production:
+  <<: *default
+  database: cashback_api_production
+  username: cashback_api
+  password: <%= ENV['CASHBACK_API_DATABASE_PASSWORD'] %>
